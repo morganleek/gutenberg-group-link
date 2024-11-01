@@ -8,7 +8,7 @@ import Controls from './controls';
  */
 // import { Component, Fragment } from "@wordpress/element";
 // import { Toolbar } from "@wordpress/components";
-import { BlockControls } from "@wordpress/blockEditor";
+import { BlockControls } from "@wordpress/block-editor";
 import { ToolbarGroup } from "@wordpress/components";
 
 export const LinkToolbar = ( props ) => (

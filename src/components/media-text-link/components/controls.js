@@ -11,8 +11,9 @@ import { Component, Fragment, useCallback, useState, useRef } from "@wordpress/e
 import { withSelect } from "@wordpress/data";
 import { compose, ifCondition } from "@wordpress/compose";
 import { LEFT, RIGHT, UP, DOWN, BACKSPACE, ENTER } from "@wordpress/keycodes";
-import { URLPopover } from "@wordpress/blockEditor";
+import { URLPopover } from "@wordpress/block-editor";
 import { ToggleControl, Button, Path, SVG, NavigableMenu, MenuItem, withSpokenMessages } from "@wordpress/components";
+import { LinkIcon } from "../../link-icon";
 
 /**
  * Module constants
@@ -106,7 +107,7 @@ const ImageURLInputUI = ( {
 	return (
 		<Fragment>
 			<Button
-				icon="admin-links"
+				icon={ LinkIcon }
 				className="components-toolbar__control"
 				label={ url ? __( 'Edit Media Link', 'block-options' ) : __( 'Media Link', 'block-options' ) }
 				aria-expanded={ isOpen }
@@ -233,7 +234,7 @@ class Controls extends Component {
 				linkDestination: LINK_DESTINATION_ATTACHMENT,
 				title: __( 'Attachment Page', 'block-options' ),
 				url: image.link,
-				icon: <SVG viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><Path d="M0 0h24v24H0V0z" fill="none" /><Path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" /></SVG>,
+				icon: <SVG xmlns="http://www.w3.org/2000/SVG" viewBox="0 0 24 24"><Path d="M10 17.389H8.444A5.194 5.194 0 1 1 8.444 7H10v1.5H8.444a3.694 3.694 0 0 0 0 7.389H10v1.5ZM14 7h1.556a5.194 5.194 0 0 1 0 10.39H14v-1.5h1.556a3.694 3.694 0 0 0 0-7.39H14V7Zm-4.5 6h5v-1.5h-5V13Z" /></SVG>,
 			},
 		];
 	}

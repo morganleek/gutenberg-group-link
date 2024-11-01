@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { Component, Fragment } from "@wordpress/element";
-import { BlockControls } from "@wordpress/blockEditor";
+import { BlockControls } from "@wordpress/block-editor";
 import { ToolbarGroup, withSpokenMessages } from "@wordpress/components";
 import { withSelect } from "@wordpress/data";
 import { compose, ifCondition } from "@wordpress/compose";

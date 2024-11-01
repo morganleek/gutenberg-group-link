@@ -7,8 +7,9 @@ import {
 	Button,
 	ToggleControl,
 } from "@wordpress/components";
-import { URLPopover } from "@wordpress/blockEditor";
+import { URLPopover } from "@wordpress/block-editor";
 import { LEFT, RIGHT, UP, DOWN, BACKSPACE, ENTER } from "@wordpress/keycodes";
+import { LinkIcon } from "../link-icon";
 
 const URLInputUI = ( {
 	onChangeUrl,
@@ -132,7 +133,7 @@ const URLInputUI = ( {
 	return (
 		<Fragment>
 			<Button
-				icon="admin-links"
+				icon={ LinkIcon }
 				className="components-toolbar__control"
 				label={
 					url ?
