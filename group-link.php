@@ -7,7 +7,7 @@
  * Version:           1.0.1
  * Author:            Morgan Leek and Munir Kamal
  * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * License URI:       https://github.com/morganleek/gutenberg-group-link
  * Text Domain:       group-link
  *
  * @package GroupLink
