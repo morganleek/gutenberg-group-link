@@ -1,15 +1,12 @@
 /**
  * WordPress dependencies
  */
-import { __ } from "@wordpress/i18n";
-import { useRef, useState, useCallback, Fragment } from "@wordpress/element";
-import {
-	Button,
-	ToggleControl,
-} from "@wordpress/components";
-import { URLPopover } from "@wordpress/block-editor";
-import { LEFT, RIGHT, UP, DOWN, BACKSPACE, ENTER } from "@wordpress/keycodes";
-import { LinkIcon } from "../link-icon";
+import { __ } from '@wordpress/i18n';
+import { useRef, useState, useCallback } from '@wordpress/element';
+import { Button, ToggleControl } from '@wordpress/components';
+import { URLPopover } from '@wordpress/block-editor';
+import { LEFT, RIGHT, UP, DOWN, BACKSPACE, ENTER } from '@wordpress/keycodes';
+import { LinkIcon } from '../link-icon';
 
 const URLInputUI = ( {
 	onChangeUrl,
@@ -17,7 +14,7 @@ const URLInputUI = ( {
 	opensInNewTab,
 	linkNoFollow,
 	linkSponsored,
-	hasAnimation,
+	// hasAnimation,
 } ) => {
 	const [ isOpen, setIsOpen ] = useState( false );
 	const openLinkUI = useCallback( () => {
@@ -34,7 +31,11 @@ const URLInputUI = ( {
 	};
 
 	const stopPropagationRelevantKeys = ( event ) => {
-		if ( [ LEFT, DOWN, RIGHT, UP, BACKSPACE, ENTER ].indexOf( event.keyCode ) > -1 ) {
+		if (
+			[ LEFT, DOWN, RIGHT, UP, BACKSPACE, ENTER ].indexOf(
+				event.keyCode
+			) > -1
+		) {
 			// Stop the key event from propagating up to ObserveTyping.startTypingInTextField.
 			event.stopPropagation();
 		}
@@ -61,7 +62,10 @@ const URLInputUI = ( {
 			// LinkContainer. Detect clicks on autocomplete suggestions using a ref here, and
 			// return to avoid the popover being closed.
 			const autocompleteElement = autocompleteRef.current;
-			if ( autocompleteElement && autocompleteElement.contains( event.target ) ) {
+			if (
+				autocompleteElement &&
+				autocompleteElement.contains( event.target )
+			) {
 				return;
 			}
 			setIsOpen( false );
@@ -99,9 +103,9 @@ const URLInputUI = ( {
 		onChangeUrl( { linkSponsored: value } );
 	};
 
-	const onSetLinkAnimation = ( value ) => {
-		onChangeUrl( { hasAnimation: value } );
-	};
+	// const onSetLinkAnimation = ( value ) => {
+	// 	onChangeUrl( { hasAnimation: value } );
+	// };
 
 	const advancedOptions = (
 		<>
@@ -120,25 +124,25 @@ const URLInputUI = ( {
 				onChange={ onSetLinkSponsored }
 				checked={ linkSponsored }
 			/>
-			<ToggleControl
+			{/* <ToggleControl
 				label={ __( 'Hover Animation', 'block-options' ) }
 				onChange={ onSetLinkAnimation }
 				checked={ hasAnimation }
-			/>
+			/> */}
 		</>
 	);
 
 	const linkEditorValue = urlInput !== null ? urlInput : url;
 
 	return (
-		<Fragment>
+		<>
 			<Button
 				icon={ LinkIcon }
 				className="components-toolbar__control"
 				label={
-					url ?
-						__( 'Edit link', 'block-options' ) :
-						__( 'Insert link', 'block-options' )
+					url
+						? __( 'Edit link', 'block-options' )
+						: __( 'Insert link', 'block-options' )
 				}
 				aria-expanded={ isOpen }
 				onClick={ openLinkUI }
@@ -177,7 +181,7 @@ const URLInputUI = ( {
 					) }
 				</URLPopover>
 			) }
-		</Fragment>
+		</>
 	);
 };
 

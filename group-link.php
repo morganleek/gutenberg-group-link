@@ -31,7 +31,7 @@ class GroupLink_Block_Assets {
 	private $url;
 
 	private function __construct() {
-		$this->url     = untrailingslashit( plugins_url( '', __FILE__ ) );
+		$this->url = untrailingslashit( plugins_url( '', __FILE__ ) );
 
 		add_action( 'enqueue_block_assets', array( $this, 'block_assets' ) );
 		add_action( 'init', array( $this, 'editor_assets' ), 9999 );
