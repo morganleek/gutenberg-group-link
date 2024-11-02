@@ -6,7 +6,9 @@ import { useRef, useState, useCallback } from '@wordpress/element';
 import { Button, ToggleControl } from '@wordpress/components';
 import { URLPopover } from '@wordpress/block-editor';
 import { LEFT, RIGHT, UP, DOWN, BACKSPACE, ENTER } from '@wordpress/keycodes';
-import { LinkIcon } from '../link-icon';
+import { link, linkOff, pencil } from '@wordpress/icons';
+
+import classNames from 'classnames';
 
 const URLInputUI = ( {
 	onChangeUrl,
@@ -124,11 +126,6 @@ const URLInputUI = ( {
 				onChange={ onSetLinkSponsored }
 				checked={ linkSponsored }
 			/>
-			{/* <ToggleControl
-				label={ __( 'Hover Animation', 'block-options' ) }
-				onChange={ onSetLinkAnimation }
-				checked={ hasAnimation }
-			/> */}
 		</>
 	);
 
@@ -137,8 +134,8 @@ const URLInputUI = ( {
 	return (
 		<>
 			<Button
-				icon={ LinkIcon }
-				className="components-toolbar__control"
+				icon={ link }
+				className={ classNames( "components-toolbar__control", { "is-pressed": url } ) }
 				label={
 					url
 						? __( 'Edit link', 'block-options' )
@@ -173,7 +170,7 @@ const URLInputUI = ( {
 								onEditLinkClick={ startEditLink }
 							/>
 							<Button
-								icon="no"
+								icon={ linkOff }
 								label={ __( 'Remove link', 'block-options' ) }
 								onClick={ onLinkRemove }
 							/>

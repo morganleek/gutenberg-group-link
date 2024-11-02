@@ -29,9 +29,11 @@ class GroupLink_Block_Assets {
 	}
 
 	private $url;
+	private $version;
 
 	private function __construct() {
 		$this->url = untrailingslashit( plugins_url( '', __FILE__ ) );
+		$this->version = GROUPLINK_VERSION;
 
 		add_action( 'enqueue_block_assets', array( $this, 'block_assets' ) );
 		add_action( 'init', array( $this, 'editor_assets' ), 9999 );
@@ -57,6 +59,14 @@ class GroupLink_Block_Assets {
 		if ( ! $this->is_edit_or_new_admin_page() ) { // load on allowed pages only.
 			return;
 		}
+
+		// Styles.
+		wp_enqueue_style(
+			'grouplink-editor',
+			$this->url . '/build/index.css',
+			array(),
+			$this->version
+		);
 
 		// Scripts.
 		wp_enqueue_script(

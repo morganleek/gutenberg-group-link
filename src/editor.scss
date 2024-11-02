@@ -1,9 +1,10 @@
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.block-editor-url-popover__row {
+	align-items: center;
+}
 
-.wp-block-create-block-group-link {
-	border: 1px dotted #f00;
+.block-editor-url-popover__link-viewer-url {
+	&:focus,
+	&:focus-visible {
+		outline: none;
+	}
 }

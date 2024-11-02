@@ -51,10 +51,6 @@ class withLinkToolbar extends Component {
 							hasAnimation={ hasAnimation || false }
 							onChangeUrl={ this.onSetHref }
 						/>
-						<URLInputButton
-							url={ href }
-							onChange={ ( url, post ) => this.updateHref( url ) }
-						/>
 					</ToolbarGroup>
 				</BlockControls>
 			</>
