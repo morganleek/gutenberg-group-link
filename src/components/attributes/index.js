@@ -8,7 +8,6 @@ import classnames from 'classnames';
  * WordPress Dependencies
  */
 import { addFilter } from '@wordpress/hooks';
-// import { Fragment } from '@wordpress/element';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { hasBlockSupport } from '@wordpress/blocks';
 
@@ -25,7 +24,7 @@ function addAttributes( settings ) {
 		// Add LinkToolbar Support
 		if (
 			blocksWithLinkToolbar.includes( settings.name ) ||
-			hasBlockSupport( settings, 'editorsKitLinkToolbar' )
+			hasBlockSupport( settings, 'groupLinkLinkToolbar' )
 		) {
 			if ( typeof settings.attributes !== 'undefined' ) {
 				settings.attributes = Object.assign( settings.attributes, {
@@ -48,10 +47,6 @@ function addAttributes( settings ) {
 						type: 'boolean',
 						default: false,
 					},
-					hasAnimation: {
-						type: 'boolean',
-						default: false,
-					},
 				} );
 			}
 		}
@@ -61,14 +56,14 @@ function addAttributes( settings ) {
 }
 
 /**
- * Add custom EditorsKit attributes to selected blocks
+ * Add custom GroupLink attributes to selected blocks
  */
 const withAttributes = createHigherOrderComponent( ( BlockEdit ) => {
 	return ( props ) => {
 		const { attributes } = props;
 
-		if ( typeof attributes.editorskit === 'undefined' ) {
-			attributes.editorskit = [];
+		if ( typeof attributes.grouplink === 'undefined' ) {
+			attributes.grouplink = [];
 		}
 
 		return (
@@ -83,25 +78,18 @@ const withAttributes = createHigherOrderComponent( ( BlockEdit ) => {
  * Override props assigned to save component to inject atttributes
  */
 function applyExtraClass( extraProps, blockType, attributes ) {
-	const { href, hasAnimation } = attributes;
+	const { href } = attributes;
 
 	if (
 		( blocksWithLinkToolbar.includes( blockType.name ) ||
-			hasBlockSupport( blockType.name, 'editorsKitLinkToolbar' ) ) &&
+			hasBlockSupport( blockType.name, 'groupLinkLinkToolbar' ) ) &&
 		typeof href !== 'undefined' &&
 		href
 	) {
 		extraProps.className = classnames(
 			extraProps.className,
-			'ek-linked-block'
+			'gl-linked-block'
 		);
-
-		if ( typeof hasAnimation !== 'undefined' && hasAnimation ) {
-			extraProps.className = classnames(
-				extraProps.className,
-				'ek-linked-block-animate'
-			);
-		}
 	}
 
 	return extraProps;
@@ -131,20 +119,20 @@ const addEditorBlockAttributes = createHigherOrderComponent(
 
 addFilter(
 	'blocks.registerBlockType',
-	'editorskit/custom/attributes',
+	'grouplink/custom/attributes',
 	addAttributes
 );
 
-addFilter( 'editor.BlockEdit', 'editorskit/attributes', withAttributes );
+addFilter( 'editor.BlockEdit', 'grouplink/attributes', withAttributes );
 
 addFilter(
 	'blocks.getSaveContent.extraProps',
-	'editorskit/applyExtraClass',
+	'grouplink/applyExtraClass',
 	applyExtraClass
 );
 
 addFilter(
 	'editor.BlockListBlock',
-	'editorskit/addEditorBlockAttributes',
+	'grouplink/addEditorBlockAttributes',
 	addEditorBlockAttributes
 );

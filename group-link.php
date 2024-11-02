@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'GROUPLINK_VERSION', '1.0.0' );
+define( 'GROUPLINK_VERSION', '1.0.1' );
 
 class GroupLink_Block_Assets {
 	private static $instance;
@@ -87,7 +87,7 @@ class GroupLink_Block_Assets {
 			return;
 		}
 
-		// Remove EditorsKit JS file when post is not using Gutenberg.
+		// Remove GroupLink JS file when post is not using Gutenberg.
 		wp_dequeue_script( 'grouplink-editor' );
 		// wp_dequeue_script( 'grouplink-devtools' );
 	}
@@ -119,7 +119,7 @@ class GroupLink_Render_Block {
 
 	private function __construct() {
 		$this->version = GROUPLINK_VERSION;
-		$this->slug    = 'editorskit';
+		$this->slug    = 'grouplink';
 		$this->url     = untrailingslashit( plugins_url( '/', dirname( __FILE__ ) ) );
 
 		if ( ! is_admin() ) {
@@ -130,9 +130,9 @@ class GroupLink_Render_Block {
 	}
 
 	private function block_attributes( $block ) {
-		if ( isset( $block['attrs'] ) && isset( $block['attrs']['editorskit'] ) && is_array( $block['attrs'] ) ) {
+		if ( isset( $block['attrs'] ) && isset( $block['attrs']['grouplink'] ) && is_array( $block['attrs'] ) ) {
 
-			return $block['attrs']['editorskit'];
+			return $block['attrs']['grouplink'];
 		}
 
 		return array();
@@ -143,7 +143,7 @@ class GroupLink_Render_Block {
 			$attributes = $block['attrs'];
 
 			if ( isset( $attributes['href'] ) && ! empty( $attributes['href'] ) ) {
-				$linked = '<a href="' . esc_url( $attributes['href'] ) . '" class="editorskit-block-link"';
+				$linked = '<a href="' . esc_url( $attributes['href'] ) . '" class="grouplink-block-link"';
 				$rel    = ' rel="';
 
 				if ( isset( $attributes['opensInNewTab'] ) && $attributes['opensInNewTab'] ) {
@@ -184,8 +184,8 @@ class GroupLink_Render_Block {
 	}
 
 	public function block_lab_get_block_attributes( $attributes, $block ) {
-		if ( ! isset( $attributes['editorskit'] ) ) {
-			$attributes['editorskit'] = array(
+		if ( ! isset( $attributes['grouplink'] ) ) {
+			$attributes['grouplink'] = array(
 				'type' => 'object',
 			);
 		}

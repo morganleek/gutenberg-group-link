@@ -36,7 +36,6 @@ class withLinkToolbar extends Component {
 			opensInNewTab,
 			linkNoFollow,
 			linkSponsored,
-			hasAnimation,
 		} = attributes;
 
 		return (
@@ -48,7 +47,6 @@ class withLinkToolbar extends Component {
 							opensInNewTab={ opensInNewTab || false }
 							linkNoFollow={ linkNoFollow || false }
 							linkSponsored={ linkSponsored || false }
-							hasAnimation={ hasAnimation || false }
 							onChangeUrl={ this.onSetHref }
 						/>
 					</ToolbarGroup>
@@ -64,7 +62,7 @@ export default compose(
 
 		return {
 			attributes,
-			isDisabled: false, // select( 'core/edit-post' ).isFeatureActive( 'disableEditorsKitLinkBlockToolbarOptions' ),
+			isDisabled: false, // select( 'core/edit-post' ).isFeatureActive( 'disableGroupLinkLinkBlockToolbarOptions' ),
 		};
 	} ),
 	ifCondition( ( props ) => {

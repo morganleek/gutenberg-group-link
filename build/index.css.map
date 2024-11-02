@@ -1,1 +1,0 @@
-{"version":3,"file":"index.css","mappings":";;;AAAA;EACC;AACD;;AAGC;EAEC;AADF,C","sources":["webpack://group-link/./src/editor.scss"],"sourcesContent":[".block-editor-url-popover__row {\n\talign-items: center;\n}\n\n.block-editor-url-popover__link-viewer-url {\n\t&:focus,\n\t&:focus-visible {\n\t\toutline: none;\n\t}\n}"],"names":[],"sourceRoot":""}

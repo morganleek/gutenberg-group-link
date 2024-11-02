@@ -28,7 +28,7 @@ const withLinkToolbar = createHigherOrderComponent( ( BlockEdit ) => {
 					( allowedBlocks.includes( props.name ) ||
 						hasBlockSupport(
 							props.name,
-							'editorsKitLinkToolbar'
+							'groupLinkLinkToolbar'
 						) ) && <LinkToolbar { ...{ ...props } } /> }
 			</>
 		);
@@ -37,6 +37,6 @@ const withLinkToolbar = createHigherOrderComponent( ( BlockEdit ) => {
 
 addFilter(
 	'editor.BlockEdit',
-	'editorskit/block-link-toolbar',
+	'grouplink/block-link-toolbar',
 	withLinkToolbar
 );

@@ -16,7 +16,6 @@ const URLInputUI = ( {
 	opensInNewTab,
 	linkNoFollow,
 	linkSponsored,
-	// hasAnimation,
 } ) => {
 	const [ isOpen, setIsOpen ] = useState( false );
 	const openLinkUI = useCallback( () => {
@@ -104,10 +103,6 @@ const URLInputUI = ( {
 	const onSetLinkSponsored = ( value ) => {
 		onChangeUrl( { linkSponsored: value } );
 	};
-
-	// const onSetLinkAnimation = ( value ) => {
-	// 	onChangeUrl( { hasAnimation: value } );
-	// };
 
 	const advancedOptions = (
 		<>

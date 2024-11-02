@@ -1,7 +1,7 @@
-.ek-linked-block {
+.gl-linked-block {
 	position: relative !important;
 
-	a.editorskit-block-link {
+	a.grouplink-block-link {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -10,7 +10,7 @@
 		z-index: 90;
 	}
 
-	&.ek-linked-block-animate {
+	&.gl-linked-block-animate {
 		transition: 0.35s;
 
 		&:hover {
