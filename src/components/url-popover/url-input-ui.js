@@ -130,7 +130,9 @@ const URLInputUI = ( {
 		<>
 			<Button
 				icon={ link }
-				className={ classNames( "components-toolbar__control", { "is-pressed": url } ) }
+				className={ classNames( 'components-toolbar__control', {
+					'is-pressed': url,
+				} ) }
 				label={
 					url
 						? __( 'Edit link', 'block-options' )

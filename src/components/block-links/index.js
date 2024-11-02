@@ -7,7 +7,6 @@ import LinkToolbar from './components/controls';
  * WordPress Dependencies
  */
 import { addFilter } from '@wordpress/hooks';
-// import { Fragment } from '@wordpress/element';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { hasBlockSupport } from '@wordpress/blocks';
 
@@ -20,19 +19,18 @@ const allowedBlocks = [ 'core/group', 'core/column', 'core/cover' ];
  * @return {string} Wrapped component.
  */
 const withLinkToolbar = createHigherOrderComponent( ( BlockEdit ) => {
-	return ( props ) => {
-		return (
-			<>
-				<BlockEdit { ...props } />
-				{ props.isSelected &&
-					( allowedBlocks.includes( props.name ) ||
-						hasBlockSupport(
-							props.name,
-							'groupLinkLinkToolbar'
-						) ) && <LinkToolbar { ...{ ...props } } /> }
-			</>
-		);
-	};
+	return ( props ) => (
+		<>
+			<BlockEdit { ...props } />
+			{ props.isSelected &&
+				( allowedBlocks.includes( props.name ) ||
+					hasBlockSupport(
+						props.name,
+						'groupLinkLinkToolbar'
+					) 
+				) && <LinkToolbar { ...props } /> }
+		</>
+	);
 }, 'withLinkToolbar' );
 
 addFilter(

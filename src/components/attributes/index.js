@@ -17,43 +17,41 @@ const blocksWithLinkToolbar = [ 'core/group', 'core/column', 'core/cover' ];
  * Filters registered block settings, extending attributes with anchor using ID
  * of the first node.
  */
-function addAttributes( settings ) {
+const addAttributes = ( settings ) => {
+	if ( typeof settings.attributes === 'undefined' ) {
+		return settings;
+	}
+
+	// Add LinkToolbar Support
 	if (
-		typeof settings.attributes !== 'undefined'
+		blocksWithLinkToolbar.includes( settings.name ) ||
+		hasBlockSupport( settings, 'groupLinkLinkToolbar' )
 	) {
-		// Add LinkToolbar Support
-		if (
-			blocksWithLinkToolbar.includes( settings.name ) ||
-			hasBlockSupport( settings, 'groupLinkLinkToolbar' )
-		) {
-			if ( typeof settings.attributes !== 'undefined' ) {
-				settings.attributes = Object.assign( settings.attributes, {
-					href: {
-						type: 'string',
-					},
-					linkDestination: {
-						type: 'string',
-						default: 'none',
-					},
-					opensInNewTab: {
-						type: 'boolean',
-						default: false,
-					},
-					linkNoFollow: {
-						type: 'boolean',
-						default: false,
-					},
-					linkSponsored: {
-						type: 'boolean',
-						default: false,
-					},
-				} );
-			}
-		}
+		settings.attributes = Object.assign( settings.attributes, {
+			href: {
+				type: 'string',
+			},
+			linkDestination: {
+				type: 'string',
+				default: 'none',
+			},
+			opensInNewTab: {
+				type: 'boolean',
+				default: false,
+			},
+			linkNoFollow: {
+				type: 'boolean',
+				default: false,
+			},
+			linkSponsored: {
+				type: 'boolean',
+				default: false,
+			},
+		} );
 	}
 
 	return settings;
-}
+};
 
 /**
  * Add custom GroupLink attributes to selected blocks
@@ -77,7 +75,7 @@ const withAttributes = createHigherOrderComponent( ( BlockEdit ) => {
 /**
  * Override props assigned to save component to inject atttributes
  */
-function applyExtraClass( extraProps, blockType, attributes ) {
+const applyExtraClass = ( extraProps, blockType, attributes ) => {
 	const { href } = attributes;
 
 	if (
@@ -93,13 +91,13 @@ function applyExtraClass( extraProps, blockType, attributes ) {
 	}
 
 	return extraProps;
-}
+};
 
 const addEditorBlockAttributes = createHigherOrderComponent(
 	( BlockListBlock ) => {
 		return ( props ) => {
-			const { name, attributes } = props;
-			const { isHeightFullScreen, isFullWidth } = attributes;
+			// const { name, attributes } = props;
+			// const { isHeightFullScreen, isFullWidth } = attributes;
 
 			let wrapperProps = props.wrapperProps;
 			let customData = {};
