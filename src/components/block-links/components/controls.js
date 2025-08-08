@@ -12,7 +12,7 @@ import { compose, ifCondition } from '@wordpress/compose';
 import URLInputUI from '../../url-popover/url-input-ui';
 
 const withLinkToolbar = ( { attributes, setAttributes } ) => {
-	const { href, opensInNewTab, linkNoFollow, linkSponsored } = attributes;
+	const { href, opensInNewTab, linkNoFollow, linkSponsored, ariaLabel } = attributes;
 
 	const onUpdateLink = ( newProps ) => {
 		setAttributes( { ...attributes, ...newProps } );
@@ -27,6 +27,7 @@ const withLinkToolbar = ( { attributes, setAttributes } ) => {
 						opensInNewTab={ opensInNewTab || false }
 						linkNoFollow={ linkNoFollow || false }
 						linkSponsored={ linkSponsored || false }
+						ariaLabel={ ariaLabel || "" }
 						onChangeUrl={ onUpdateLink }
 					/>
 				</ToolbarGroup>

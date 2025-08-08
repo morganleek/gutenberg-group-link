@@ -4,7 +4,7 @@
  * Description:       Add links to Group, Cover and Column blocks
  * Requires at least: 6.6
  * Requires PHP:      7.2
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Morgan Leek and Munir Kamal
  * License:           GPL-2.0-or-later
  * License URI:       https://github.com/morganleek/gutenberg-group-link
@@ -157,6 +157,10 @@ class GroupLink_Render_Block {
 
 				if ( isset( $attributes['linkSponsored'] ) && $attributes['linkSponsored'] ) {
 					$rel .= ' sponsored';
+				}
+
+				if( isset( $attributes['ariaLabel'] ) && $attributes['ariaLabel'] ) {
+					$linked .= ' aria-label="' . $attributes['ariaLabel'] . '"';
 				}
 
 				$rel    .= '"';

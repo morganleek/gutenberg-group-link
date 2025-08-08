@@ -1,8 +1,8 @@
 {
 	"name": "group-link",
-	"version": "1.0.1",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"version": "1.0.2",
+	"description": "Linking for the Group block",
+	"author": "Morgan Leek",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {

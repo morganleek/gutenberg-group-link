@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { useRef, useState, useCallback } from '@wordpress/element';
-import { Button, ToggleControl } from '@wordpress/components';
+import { Button, ToggleControl, TextControl } from '@wordpress/components';
 import { URLPopover } from '@wordpress/block-editor';
 import { LEFT, RIGHT, UP, DOWN, BACKSPACE, ENTER } from '@wordpress/keycodes';
 import { link, linkOff, pencil } from '@wordpress/icons';
@@ -16,6 +16,7 @@ const URLInputUI = ( {
 	opensInNewTab,
 	linkNoFollow,
 	linkSponsored,
+	ariaLabel,
 } ) => {
 	const [ isOpen, setIsOpen ] = useState( false );
 	const openLinkUI = useCallback( () => {
@@ -104,22 +105,36 @@ const URLInputUI = ( {
 		onChangeUrl( { linkSponsored: value } );
 	};
 
+	const onSetAriaLabel = ( value ) => {
+		onChangeUrl( { ariaLabel: value } );
+	}
+
 	const advancedOptions = (
 		<>
 			<ToggleControl
+			
 				label={ __( 'Open in New Tab', 'block-options' ) }
 				onChange={ onSetNewTab }
 				checked={ opensInNewTab }
 			/>
 			<ToggleControl
+			
 				label={ __( 'No Follow', 'block-options' ) }
 				onChange={ onSetLinkNoFollow }
 				checked={ linkNoFollow }
 			/>
 			<ToggleControl
+			
 				label={ __( 'Sponsored', 'block-options' ) }
 				onChange={ onSetLinkSponsored }
 				checked={ linkSponsored }
+			/>
+			<TextControl
+				__nextHasNoMarginBottom
+				__next40pxDefaultSize
+				label="Aria Label"
+				value={ ariaLabel }
+				onChange={ onSetAriaLabel }
 			/>
 		</>
 	);

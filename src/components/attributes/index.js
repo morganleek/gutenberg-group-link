@@ -47,6 +47,10 @@ const addAttributes = ( settings ) => {
 				type: 'boolean',
 				default: false,
 			},
+			ariaLabel: {
+				type: 'string',
+				default: '',
+			}
 		} );
 	}
 
