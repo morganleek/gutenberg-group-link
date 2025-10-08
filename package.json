@@ -1,6 +1,6 @@
 {
 	"name": "group-link",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Linking for the Group block",
 	"author": "Morgan Leek",
 	"license": "GPL-2.0-or-later",
@@ -15,10 +15,10 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.24.0"
+		"@wordpress/scripts": "^30.25.0"
 	},
 	"dependencies": {
-		"@wordpress/icons": "^10.31.0",
+		"@wordpress/icons": "^10.32.0",
 		"classnames": "^2.5.1"
 	}
 }
