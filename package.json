@@ -15,10 +15,10 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.25.0"
+		"@wordpress/scripts": "^31.0.0"
 	},
 	"dependencies": {
-		"@wordpress/icons": "^10.32.0",
+		"@wordpress/icons": "^11.2.0",
 		"classnames": "^2.5.1"
 	}
 }
