@@ -4,7 +4,7 @@
  * Description:       Add links to Group, Cover and Column blocks
  * Requires at least: 6.6
  * Requires PHP:      7.2
- * Version:           1.0.4
+ * Version:           1.0.6
  * Author:            Morgan Leek and Munir Kamal
  * License:           GPL-2.0-or-later
  * License URI:       https://github.com/morganleek/gutenberg-group-link
@@ -94,7 +94,7 @@ class GroupLink_Block_Assets {
 
 	function is_edit_or_new_admin_page() { // phpcs:ignore
 		global $pagenow;
-		return (is_admin() && ($pagenow === 'post.php' || $pagenow === 'post-new.php')); // phpcs:ignore
+		return (is_admin() && ($pagenow === 'post.php' || $pagenow === 'post-new.php' || $pagenow === 'site-editor.php')); // phpcs:ignore
 	}
 
 }
