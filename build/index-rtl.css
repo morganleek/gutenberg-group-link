@@ -1,1 +1,1 @@
-.block-editor-url-popover__row{align-items:center}.block-editor-url-popover__link-viewer-url:focus,.block-editor-url-popover__link-viewer-url:focus-visible{outline:none}
+.block-editor-url-popover__row{align-items:center}.block-editor-url-popover__row>:not(.block-editor-url-popover__settings-toggle){margin-bottom:0}.block-editor-url-popover__settings>:not(:last-child){margin-bottom:.5rem}.block-editor-url-popover__link-viewer-url:focus,.block-editor-url-popover__link-viewer-url:focus-visible{outline:none}

@@ -1,5 +1,16 @@
 .block-editor-url-popover__row {
 	align-items: center;
+	& > :not(.block-editor-url-popover__settings-toggle) {
+		margin-bottom: 0;
+	}
+}
+
+.block-editor-url-popover__settings {
+	& > * {
+		&:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+	}
 }
 
 .block-editor-url-popover__link-viewer-url {
